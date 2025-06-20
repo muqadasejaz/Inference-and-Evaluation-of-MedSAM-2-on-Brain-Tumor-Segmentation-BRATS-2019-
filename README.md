@@ -24,12 +24,32 @@ This work provides insights into the model’s potential and limitations in medi
 
 ## 🧠 MedSAM-2 Architecture
 
-MedSAM-2 is a domain-adapted version of Meta AI’s **Segment Anything Model (SAM)**, tailored for medical imaging tasks. It leverages:
+The MedSAM-2 architecture builds upon the Segment Anything framework with key enhancements for medical imaging. It processes a sequence of medical scans (e.g., MRI or CT slices) by combining **prompt-based segmentation**, **memory attention**, and **temporal propagation** across frames.
 
-- **ViT-based encoder** to capture contextual and spatial features from grayscale medical images
-- **Prompt-based segmentation**, enabling region-specific inference (e.g., bounding boxes or points)
-- **Multi-modal fusion** of image and prompt embeddings for robust segmentation
-- **Fine-tuned on multi-organ medical segmentation datasets**, including CT and MRI images
+### 🔧 Components
+
+- **Image Encoder**: Extracts high-level visual features from each medical image slice.
+- **Prompt Encoder**: Encodes user-provided prompts (e.g., bounding box or point) to guide the segmentation.
+- **Mask Decoder**: Generates segmentation masks based on encoded image features and prompts.
+- **Memory Attention Module**: Maintains a memory of previous frames to enhance contextual understanding and temporal consistency.
+- **Propagation Module**: Transfers learned information across frames to enable segmentation continuity over the entire image sequence.
+
+### 🔄 Inference Flow
+
+1. **Initial Frame (Index 1)**:
+   - Input image is encoded using the Image Encoder.
+   - A user-defined prompt (e.g., bounding box) is processed by the Prompt Encoder.
+   - Both are combined via Memory Attention to produce the first mask using the Mask Decoder.
+
+2. **Subsequent Frames (Index 2 to N)**:
+   - Each frame is encoded individually.
+   - Memory Attention uses the previous mask and features to provide contextual guidance.
+   - The Propagation Module transfers learned segmentation from earlier frames to maintain consistency.
+
+This design allows MedSAM-2 to perform accurate, prompt-guided segmentation even across sequential image slices, making it highly suitable for volumetric medical imaging tasks like tumor delineation.
+
+- ![image](https://github.com/user-attachments/assets/24d9dd36-a21a-44a3-a64b-6233f25d2b45)
+
 
 MedSAM-2 supports both **bounding-box prompts** and **point prompts** for guidance.
 
@@ -63,6 +83,15 @@ Dataset Link: https://www.kaggle.com/datasets/aryashah2k/brain-tumor-segmentatio
 https://www.kaggle.com/datasets/aryashah2k/brain-tumor-segmentation-brats-2019/data
 https://www.kaggle.com/datasets/awsaf49/brats2020-training-data
 https://github.com/bowang-lab/MedSAM2
+
+## 👩‍💻 Author
+
+**Muqadas Ejaz**  
+BS Computer Science (AI Specialization)  
+Machine Learning & Computer Vision Enthusiast  
+📫 Connect with me on [LinkedIn](https://www.linkedin.com/in/muqadasejaz/)  
+🌐 GitHub: [github.com/yourusername](https://github.com/muqadasejaz)
+
 
 
 
