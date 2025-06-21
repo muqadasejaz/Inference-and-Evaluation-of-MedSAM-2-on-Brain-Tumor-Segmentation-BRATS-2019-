@@ -90,7 +90,7 @@ https://github.com/bowang-lab/MedSAM2
 BS Computer Science (AI Specialization)  
 Machine Learning & Computer Vision Enthusiast  
 📫 Connect with me on [LinkedIn](https://www.linkedin.com/in/muqadasejaz/)  
-🌐 GitHub: [github.com/yourusername](https://github.com/muqadasejaz)
+🌐 GitHub: [github.com/muqadasejaz](https://github.com/muqadasejaz)
 
 
 
